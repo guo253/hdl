@@ -155,9 +155,9 @@ always @(*) begin
   9'h107: up_rdata <= request_y_length;
   9'h108: up_rdata <= request_dest_stride;
   9'h109: up_rdata <= request_src_stride;
-  9'h10a: up_rdata <= up_transfer_done_bitmap;
+  9'h10a: up_rdata <= {transfer_lengths_fifo_valid,29'b0,up_transfer_done_bitmap};
   9'h10b: up_rdata <= up_transfer_id_eot;
-  9'h10c: up_rdata <= transfer_lengths_fifo_valid;
+  9'h10c: up_rdata <= 32'h0;
   9'h112: up_rdata <= response_measured_transfer_length;
   9'h113: up_rdata <= transfer_lengths_fifo_data[DMA_LENGTH_WIDTH-1 : 0];   // Length
   9'h114: up_rdata <= transfer_lengths_fifo_data[DMA_LENGTH_WIDTH-1 +: 2];  // ID
